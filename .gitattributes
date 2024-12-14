@@ -1,7 +1,33 @@
-# Auto detect text files and perform LF normalization
-*.csharp linguist-detectable=true  
+# C# files (primary language for ASP.NET MVC)
+*.cs linguist-language=C#
+
+# Razor view files (used in ASP.NET MVC)
 *.cshtml linguist-language=HTML
+
+# HTML files
+*.html linguist-language=HTML
+
+# CSS files
+*.css linguist-language=CSS
+
+# JavaScript files
+*.js linguist-language=JavaScript
+*.min.js linguist-detectable=false  # Exclude minified JS files
+
+# Configuration files (common in ASP.NET MVC)
 *.config linguist-language=XML
-*.asax linguist-language=C#
-*.sln linguist-vendored
-*.dll linguist-generated
+*.xml linguist-language=XML
+*.json linguist-language=JSON
+
+# Exclude build artifacts and generated files
+*.dll linguist-detectable=false
+*.exe linguist-detectable=false
+*.pdb linguist-detectable=false
+
+# Exclude Visual Studio metadata files
+*.csproj linguist-detectable=false
+*.sln linguist-detectable=false
+
+# Exclude vendor libraries and static assets
+node_modules/* linguist-detectable=false
+wwwroot/lib/* linguist-detectable=false

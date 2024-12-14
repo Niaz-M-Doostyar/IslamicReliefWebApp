@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <title>Islamic Relief</title>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+
+    @Styles.Render("~/Content/styles")
+</head>
+<body class="fix-header fix-sidebar card-no-border">
+
+    <div id="main-wrapper">
+        <div class="preloader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+            </svg>
+        </div>
+
+        @Html.Partial("HeaderPartial")
+        @Html.Partial("SidebarPartial")
+        @RenderBody()
+        @RenderSection("Scripts",false)
+        @Scripts.Render("~/bundles/scripts")
+        @RenderSection("viewLibraries",false)
+    </div>
+</body>
+</html>

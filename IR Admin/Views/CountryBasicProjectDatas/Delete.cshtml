@@ -1,0 +1,153 @@
+﻿@model IR_Admin.Db.CountryBasicProjectData
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CountryBasicProjectData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Roll)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Roll)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfProject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfProject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeasonalProjectType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeasonalProjectType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsOneDonar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsOneDonar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IRWProjectPinCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IRWProjectPinCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donar_Partner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donar_Partner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImplementationPeriodFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImplementationPeriodFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImplementationPeriodTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImplementationPeriodTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

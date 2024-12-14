@@ -1,0 +1,305 @@
+﻿
+@{
+    ViewBag.Title = "Predicted Data";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using IR_Admin.Helpers
+@model IR_Admin.Db.CountryBasicProjectData
+
+
+<div class="page-wrapper">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">Add Project Details</h3>
+        </div>
+        <div class="">
+            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Project Data</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="#">
+                            <div class="form-body">
+
+                                <div class="row p-t-20">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">Project Name</label>
+                                            @if (ViewBag.ProjectData != null)
+                                            {
+                                                <input type="hidden" id="projectId" class="form-control" value="@ViewBag.ProjectData.Id">
+                                                <input type="text" disabled="" class="form-control" value="@ViewBag.ProjectData.Name">
+                                            }
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <style>
+                                    td {
+                                        text-align: center
+                                    }
+                                </style>
+                                @if (ViewBag.Model != null)
+                                {
+                                    List<UserCategory> UserCategoryModel = ViewBag.Model as List<UserCategory>;
+                                    List<UserComponents> UserComponentsModel = ViewBag.Components as List<UserComponents>;
+                                    if (UserCategoryModel != null)
+                                    {
+                                        
+                                        
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+
+                                                <div class="card">
+                                                    <div class="table-responsive">
+                                                        <table id="myTable" class="table full-color-table full-info-table hover-table mytable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 10px; font-size: 13px;background-color: #1976d2;">Category</th>
+                                                                    <th style="width: 10px; font-size: 13px;background-color: #1976d2;">Disability</th>
+                                                                    <th style="width: 10px; font-size: 13px;background-color: #1976d2;">Gender</th>
+                                                                    <th style="width: 95px; font-size: 13px;background-color: #1976d2;">Age Group</th>
+                                                                    @foreach (UserComponents components in UserComponentsModel)
+                                                                    {
+                                                                        <th style="font-size: 13px;background-color: #1976d2;">@components.ComponentName</th>
+                                                                    }
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (var field in UserCategoryModel)
+
+                                                                {
+                                                                    foreach (var sf in field.StaticFields)
+                                                                    {
+
+                                                                        <tr>
+                                                                            <td style="border: 1px solid #007bff;">@field.CategoryName</td>
+                                                                            <td style="border: 1px solid #007bff;">@sf.Disability</td>
+                                                                            <td style="border: 1px solid #007bff;">@sf.Gender</td>
+                                                                            <td style="border: 1px solid #007bff;">@sf.AgeGroup</td>
+
+                                                                            @foreach (UserComponents components in UserComponentsModel)
+                                                                            {
+                                                                                <td style="border: 1px solid #007bff;">
+                                                                                    <input type="number" class="input-data form-control" name="components" id="components" />
+                                                                                </td>
+                                                                            }
+                                                                        </tr>
+                                                                    }
+                                                                }
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        //}
+                                    }
+                                }
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" id="submitBtn" onclick="sendData();" class="btn btn-success">Save</button>
+                                <button type="button" class="btn btn-inverse">Cancel</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section viewLibraries
+{
+    <script>
+
+
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "pageLength": 100,
+                dom: 'Bfrtip', // Add the buttons container to the table
+                buttons: [
+                    'excel' // Add the export buttons
+                ]
+            });
+
+            var $submitBtn = $("#submitBtn");
+
+            function areAllInputsFilled() {
+                var allInputsFilled = true;
+                $(".input-data").each(function () {
+                    if ($(this).val().trim() === '') {
+                        allInputsFilled = false;
+                        return false;
+                    }
+                });
+                return allInputsFilled;
+            }
+
+            function updateSubmitButton() {
+                var isSearchEmpty = $('#myTable_filter input').val().trim() === '';
+                if (areAllInputsFilled() && isSearchEmpty) {
+                    $submitBtn.prop("disabled", false).css("background-color", "blue");
+                } else {
+                    $submitBtn.prop("disabled", true).css("background-color", "red");
+                }
+            }
+
+            updateSubmitButton(); // Initial button state
+
+            $(".input-data").on("input", function () {
+                updateSubmitButton();
+            });
+
+            // Listen for the DataTable search event
+            $('#myTable').on('search.dt', function () {
+                updateSubmitButton();
+            });
+        });
+
+    </script>
+    <script>
+
+        function toArrayOfObjects(tables) {
+            const result = [];
+
+            tables.forEach(table => {
+                const columns = Array.from(table.querySelectorAll('th')).map(heading => heading.textContent);
+                const rows = table.querySelectorAll('tbody > tr');
+
+                const tableData = Array.from(rows).map(row => {
+                    const dataCells = Array.from(row.querySelectorAll('td'));
+                    const rowData = columns.reduce((obj, column, index) => {
+                        const inputElement = dataCells[index].querySelector('input[type=number]');
+                        obj[column] = inputElement ? inputElement.value : dataCells[index].textContent;
+                        return obj;
+                    }, {});
+                    return rowData;
+                });
+
+                result.push(tableData);
+            });
+
+            return result;
+        }
+
+        function sendData() {
+            const tables = document.querySelectorAll('.mytable');
+            console.log(toArrayOfObjects(tables));
+
+            const jsonStr = JSON.stringify(toArrayOfObjects(tables));
+            console.log(jsonStr);
+
+            $(document).ready(function () {
+
+                $.ajax(
+                    {
+                        type: 'POST',
+                        dataType: 'JSON',
+                        url: '/BeneficiariesRecords/CreatePredictedData',
+                        data: { data: jsonStr, projectId: document.getElementById('projectId').value },
+                        success:
+                            function (response) {
+                                alert("Data Added Successfully");
+                                swal("Good job!", "Project Data Added Successfully", "success");
+                            },
+                        error:
+                            function (response) {
+                                alert("Error: " + response);
+                            }
+                    });
+
+            });
+
+        }
+
+
+    </script>
+    <script src="/Content/admin-press/assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/Content/admin-press/assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="/Content/admin-press/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="/Content/admin-press/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="/Content/admin-press/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="/Content/admin-press/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="/Content/admin-press/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="/Content/admin-press/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/Content/admin-press/js/custom.min.js"></script>
+    <!-- This is data table -->
+    <script src="/Content/admin-press/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <!-- end - This is for export functionality only -->
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+            $(document).ready(function () {
+                var table = $('#example').DataTable({
+                    "columnDefs": [{
+                        "visible": false,
+                        "targets": 2
+                    }],
+                    "order": [
+                        [2, 'asc']
+                    ],
+                    "displayLength": 25,
+                    "drawCallback": function (settings) {
+                        var api = this.api();
+                        var rows = api.rows({
+                            page: 'current'
+                        }).nodes();
+                        var last = null;
+                        api.column(2, {
+                            page: 'current'
+                        }).data().each(function (group, i) {
+                            if (last !== group) {
+                                $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                                last = group;
+                            }
+                        });
+                    }
+                });
+                // Order by the grouping
+                $('#example tbody').on('click', 'tr.group', function () {
+                    var currentOrder = table.order()[0];
+                    if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                        table.order([2, 'desc']).draw();
+                    } else {
+                        table.order([2, 'asc']).draw();
+                    }
+                });
+            });
+        });
+        $('#example23').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+    </script>
+}

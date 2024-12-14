@@ -1,0 +1,127 @@
+﻿@using IR_Admin.Db
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">Approval Report</h3>
+        </div>
+        <div class="">
+            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Report</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="form-layout.html#">
+                            <div class="form-body">
+                                <div class="row p-t-20">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Detail Report</label>
+                                            <select name="SelectedYear" id="SelectedYear" class="form-control" required>
+                                                <option>-- Select --</option>
+                                                @if (ViewBag.Years != null)
+                                                {
+                                                    foreach (var year in ViewBag.Years)
+                                                    {
+                                                        <option>@year</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="button" id="submitBtn" onclick="openWindow();" class="btn btn-success">Submit</button>
+                                            <button type="button" class="btn btn-inverse">Cancel</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Planned and Actual Detail Report</label>
+                                            <select name="SelectedProject" id="SelectedProject" class="form-control" required>
+
+                                                @if (ViewBag.Projects != null)
+                                                {
+                                                    <option selected value="0">--Select Project--</option>
+                                                    foreach (var project in (List<CountryBasicProjectData>)ViewBag.Projects)
+                                                    {
+                                                        <option value="@project.Id">@project.Name</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="button" id="submitBtn" onclick="openPredictedAndActualReportWindow();" class="btn btn-success">Submit</button>
+                                            <button type="button" class="btn btn-inverse">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="card-body">
+                    @using (Html.BeginForm("Index", "ReportViewer", FormMethod.Post, new {@class = "form-horizontal"}))
+                    {
+                        
+                            <div class="form-body">
+                                <div class="row p-t-20">
+                                    <div class="col-md-12">
+                                        <label class="control-label">Final Report</label>
+                                        <hr/>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Start Date</label>
+                                                    <input class="form-control" id="startDate" name="startDate" type="date" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">End Date</label>
+                                                    <input class="form-control" id="endDate" name="endDate" type="date" required>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+
+                                <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
+                                <button type="button" class="btn btn-inverse">Cancel</button>
+                            </div>
+                       
+                    }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    function openWindow() {
+        var selectedYear = document.getElementById('SelectedYear').value;
+        window.open("/Reporting/ReportWebForm.aspx?year=" + selectedYear, "_blank", "width = 600, height = 600");
+    }
+    function openPredictedAndActualReportWindow() {
+        var selectedProject = document.getElementById('SelectedProject').value;
+        window.open("/Reporting/PredictedAndActualDataReportWebForm.aspx?projectId=" + selectedProject, "_blank", "width = 600, height = 600");
+    }
+</script>

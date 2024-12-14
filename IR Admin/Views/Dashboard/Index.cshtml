@@ -1,0 +1,269 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="page-wrapper">
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">Dashboard</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </div>
+        <div>
+            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+        </div>
+    </div>
+    <div class="container-fluid">
+
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-8">
+                                <h2>2 <i class="ti-angle-down font-14 text-danger"></i></h2>
+                                <h6>Users</h6>
+                            </div>
+                            <div class="col-4 align-self-center text-right  p-l-0">
+                                <div id="sparklinedash3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-8">
+                                <h2 class="">1 <i class="ti-angle-up font-14 text-success"></i></h2>
+                                <h6>Projects</h6>
+                            </div>
+                            <div class="col-4 align-self-center text-right p-l-0">
+                                <div id="sparklinedash"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-8">
+                                <h2>1 <i class="ti-angle-up font-14 text-success"></i></h2>
+                                <h6>ongoing Projects</h6>
+                            </div>
+                            <div class="col-4 align-self-center text-right p-l-0">
+                                <div id="sparklinedash2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-8">
+                                <h2>1 <i class="ti-angle-down font-14 text-danger"></i></h2>
+                                <h6>Last 3 years Projects</h6>
+                            </div>
+                            <div class="col-4 align-self-center text-right p-l-0">
+                                <div id="sparklinedash4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <script type="text/javascript">
+            window.onload = function() {
+                var chart1 = new CanvasJS.Chart("chartContainer1", {
+                    theme: "light1",
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    title: {
+                        text: "Project Beneficiary Tracking Record"
+                    },
+                    subtitles: [{
+                        text: "2023"
+                    }],
+                    data: [{
+                        type: "pie",
+                        startAngle: 180,
+                        toolTipContent: "<b>{label}</b>: {y}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabel: "{label} - {y}%",
+                        dataPoints: @Html.Raw(ViewBag.DataPoints1)
+                    }]
+                });
+                chart1.render();
+                
+                var chart2 = new CanvasJS.Chart("chartContainer2", {
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "SADD Data Across All Sectors "
+                    },
+                    subtitles: [{
+                        text: "2023"
+                    }],
+                    legend: {
+                        cursor: "pointer",
+                        itemclick: explodePie,
+                        verticalAlign: "center",
+                        horizontalAlign: "right"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 180,
+                        toolTipContent: "<b>{label}</b>: {y}%",
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabel: "{label} - {y}%",
+                        indexLabelFontColor: "#12122B",
+                        indexLabelPlacement: "inside",
+                        indexLabelFontSize: 15,
+                        dataPoints: @Html.Raw(ViewBag.DataPoints2)
+                    }]
+                });
+                chart2.render();
+
+                function explodePie(e) {
+                    if (typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+                        e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+                    } else {
+                        e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+                    }
+                    e.chart.render();
+                }
+
+
+                var chart3 = new CanvasJS.Chart("chartContainer3", {
+                    animationEnabled: true,
+                    exportEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "Category based Gender Data"
+                    },
+                    axisY: {
+                        title: "No. of Categories"
+                    },
+                    data: [{
+                        type: "column",
+                        dataPoints: @Html.Raw(ViewBag.DataPoints3)
+                    }]
+                });
+                chart3.render();
+
+                var chart4 = new CanvasJS.Chart("chartContainer4", {
+                    animationEnabled: true,
+                    exportEnabled: true,
+                    theme: "light2",
+                    title: {
+                        text: "Category based Gender Data"
+                    },
+                    axisY: {
+                        title: "No. of Employees"
+                    },
+                    data: [{
+                        type: "column",
+                        dataPoints: @Html.Raw(ViewBag.DataPoints4)
+                    }]
+                });
+                chart4.render();
+
+                var chart5 = new CanvasJS.Chart("chartContainer5", {
+                    animationEnabled: true,
+                    exportEnabled: true,
+                    title: {
+                        text: "Demographic Information Across All Sectors"
+                    },
+                    subtitles: [{
+                        text: "2023"
+                    }],
+                    axisY: {
+                        title: "Number of Nobel Prizes",
+                        gridThickness: 0
+                    },
+                    data: [{
+                        type: "bar",
+                        indexLabel: "{y}",
+                        dataPoints: @Html.Raw(ViewBag.DataPoints5)
+                    }]
+                });
+                chart5.render();
+            }
+                </script>
+                <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+            </div>
+
+            <div class="col-lg-6">
+                <div id="chartContainer2" style="height: 370px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div id="chartContainer3" style="height: 370px; width: 100%;"></div>
+            </div>
+            <div class="col-lg-6">
+                <div id="chartContainer4" style="height: 370px; width: 100%;"></div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="chartContainer5" style="height: 370px; width: 100%;"></div>
+            </div>
+
+        </div>
+
+        <style>
+            .canvasjs-chart-credit
+            {
+                display: none !important;
+            }
+        </style>
+
+    </div>
+    <footer class="footer">
+        © @DateTime.Now.Year
+    </footer>
+</div>
+@section viewLibraries
+{
+    <script src="/Content/admin-press/assets/plugins/flot/excanvas.js"></script>
+    <script src="/Content/admin-press/assets/plugins/flot/jquery.flot.js"></script>
+    <script src="/Content/admin-press/assets/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="/Content/admin-press/assets/plugins/flot/jquery.flot.time.js"></script>
+    <script src="/Content/admin-press/assets/plugins/flot/jquery.flot.stack.js"></script>
+    <script src="/Content/admin-press/assets/plugins/flot/jquery.flot.crosshair.js"></script>
+    <script src="/Content/admin-press/assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="/Content/admin-press/main/js/flot-data.js"></script>
+    <script src="/Content/admin-press/assets/plugins/Chart.js/chartjs.init.js"></script>
+    <script src="/Content/admin-press/assets/plugins/Chart.js/Chart.min.js"></script>
+    <script src="/Content/admin-press/main/js/morris-data.js"></script>
+    <script src="~/Content/admin-press/jquery.canvasjs.min.js"></script>
+
+}

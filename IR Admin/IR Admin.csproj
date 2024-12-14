@@ -1,0 +1,1197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43364FE6-8EBD-4439-880F-77C2B994ACAA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IR_Admin</RootNamespace>
+    <AssemblyName>IR Admin</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44354</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=6.2.8.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.6.2.8\lib\net35\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net35\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net35\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="ISO3166, Version=1.0.4.0, Culture=neutral, PublicKeyToken=8d672889792f7833, processorArchitecture=MSIL">
+      <HintPath>..\packages\ISO3166.1.0.4\lib\net20\ISO3166.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1586.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1586.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1586.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1586.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1586.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.2\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net46\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net46\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BeneficiariesRecordsController.cs" />
+    <Compile Include="Controllers\CountryBasicProjectDatasController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\DetailedReportsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\ReportViewerController.cs" />
+    <Compile Include="Db\AspNetRole.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\AspNetUser.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\AspNetUserClaim.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\AspNetUserLogin.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\AssignUser.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\BeneficiariesRecord.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\BeneficiaryRecord.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Category.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\CountryBasicProjectData.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\CountryProjectSectorInformation.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\CountrySustainableDevelopmentGoalInformation.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\C__MigrationHistory.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\DbModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\DbModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\DbModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbModels.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Db\FlexibleIntervention.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\PredictedFlexibleInterventionsData.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\ProjectRelatedCategory.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Province.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ExcelStyleHelper.cs" />
+    <Compile Include="Helpers\MultiModels.cs" />
+    <Compile Include="Helpers\ProjectEnums.cs" />
+    <Compile Include="Helpers\ProjectHelper.cs" />
+    <Compile Include="Helpers\ProjectResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\UserDataTable.cs" />
+    <Compile Include="IR_DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IR_DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="IR_DBFinalReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IR_DBFinalReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202307240855307_InitialCreate.cs" />
+    <Compile Include="Migrations\202307240855307_InitialCreate.designer.cs">
+      <DependentUpon>202307240855307_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporting\DetailedReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DetailedReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\DetailedReportModel.cs" />
+    <Compile Include="Reporting\PredictedAndActualDataReportWebForm.aspx.cs">
+      <DependentUpon>PredictedAndActualDataReportWebForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporting\PredictedAndActualDataReportWebForm.aspx.designer.cs">
+      <DependentUpon>PredictedAndActualDataReportWebForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\ReportWebForm.aspx.cs">
+      <DependentUpon>ReportWebForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporting\ReportWebForm.aspx.designer.cs">
+      <DependentUpon>ReportWebForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\admin-press\assets\images\alert\alert.png" />
+    <Content Include="Content\admin-press\assets\images\alert\alert2.png" />
+    <Content Include="Content\admin-press\assets\images\alert\alert3.png" />
+    <Content Include="Content\admin-press\assets\images\alert\alert4.png" />
+    <Content Include="Content\admin-press\assets\images\alert\alert5.png" />
+    <Content Include="Content\admin-press\assets\images\alert\alert6.png" />
+    <Content Include="Content\admin-press\assets\images\alert\alert7.png" />
+    <Content Include="Content\admin-press\assets\images\alert\model.png" />
+    <Content Include="Content\admin-press\assets\images\alert\model2.png" />
+    <Content Include="Content\admin-press\assets\images\alert\model3.png" />
+    <Content Include="Content\admin-press\assets\images\background\profile-bg.jpg" />
+    <Content Include="Content\admin-press\assets\images\background\socialbg.jpg" />
+    <Content Include="Content\admin-press\assets\images\big\img1.jpg" />
+    <Content Include="Content\admin-press\assets\images\big\img2.jpg" />
+    <Content Include="Content\admin-press\assets\images\big\img3.jpg" />
+    <Content Include="Content\admin-press\assets\images\big\img4.jpg" />
+    <Content Include="Content\admin-press\assets\images\big\img5.jpg" />
+    <Content Include="Content\admin-press\assets\images\big\img6.jpg" />
+    <Content Include="Content\admin-press\assets\images\browser\chrome-logo.png" />
+    <Content Include="Content\admin-press\assets\images\browser\firefox-logo.png" />
+    <Content Include="Content\admin-press\assets\images\browser\internet-logo.png" />
+    <Content Include="Content\admin-press\assets\images\browser\opera-logo.png" />
+    <Content Include="Content\admin-press\assets\images\browser\safari-logo.png" />
+    <Content Include="Content\admin-press\assets\images\favicon.png" />
+    <Content Include="Content\admin-press\assets\images\gallery\chair.jpg" />
+    <Content Include="Content\admin-press\assets\images\gallery\chair2.jpg" />
+    <Content Include="Content\admin-press\assets\images\gallery\chair3.jpg" />
+    <Content Include="Content\admin-press\assets\images\gallery\chair4.jpg" />
+    <Content Include="Content\admin-press\assets\images\logo-icon.png" />
+    <Content Include="Content\admin-press\assets\images\logo-light-icon.png" />
+    <Content Include="Content\admin-press\assets\images\logo-light-text.png" />
+    <Content Include="Content\admin-press\assets\images\logo-text.png" />
+    <Content Include="Content\admin-press\assets\images\tooltip\Euclid.png" />
+    <Content Include="Content\admin-press\assets\images\users\1.jpg" />
+    <Content Include="Content\admin-press\assets\images\users\2.jpg" />
+    <Content Include="Content\admin-press\assets\images\users\3.jpg" />
+    <Content Include="Content\admin-press\assets\images\users\4.jpg" />
+    <Content Include="Content\admin-press\assets\images\users\5.jpg" />
+    <Content Include="Content\admin-press\assets\images\users\6.jpg" />
+    <Content Include="Content\admin-press\assets\images\users\7.jpg" />
+    <Content Include="Content\admin-press\assets\images\users\8.jpg" />
+    <Content Include="Content\admin-press\assets\images\users\profile.png" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-datepicker\bootstrap-datepicker.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-material-datetimepicker\css\bootstrap-material-datetimepicker.css" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-material-datetimepicker\js\bootstrap-material-datetimepicker.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-select\bootstrap-select.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-select\bootstrap-select.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-switch\bootstrap-switch.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-switch\bootstrap-switch.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-table\dist\bootstrap-table.ints.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-table\dist\bootstrap-table.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-table\dist\bootstrap-table.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-tagsinput\dist\bootstrap-tagsinput.css" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-tagsinput\dist\bootstrap-tagsinput.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-treeview-master\dist\bootstrap-treeview-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap-treeview-master\dist\bootstrap-treeview.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\bootstrap\js\popper.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\calendar\dist\cal-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\calendar\dist\fullcalendar.css" />
+    <Content Include="Content\admin-press\assets\plugins\calendar\dist\fullcalendar.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\calendar\jquery-ui.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\Chart.js\Chart.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\Chart.js\chartjs.init.js" />
+    <Content Include="Content\admin-press\assets\plugins\chartist-js\dist\chartist-init.css" />
+    <Content Include="Content\admin-press\assets\plugins\chartist-js\dist\chartist-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\chartist-js\dist\chartist.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\chartist-js\dist\chartist.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\chartist-plugin-tooltip-master\dist\chartist-plugin-tooltip.css" />
+    <Content Include="Content\admin-press\assets\plugins\chartist-plugin-tooltip-master\dist\chartist-plugin-tooltip.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\clockpicker\dist\jquery-clockpicker.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\clockpicker\dist\jquery-clockpicker.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\cropper\cropper-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\cropper\cropper.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\cropper\cropper.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\css-chart\css-chart.css" />
+    <Content Include="Content\admin-press\assets\plugins\datatables\dataTables.bootstrap.js" />
+    <Content Include="Content\admin-press\assets\plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\date-paginator\bootstrap-datepaginator.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\date-paginator\moment.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\dff\dff.js" />
+    <Content Include="Content\admin-press\assets\plugins\dropify\dist\css\dropify.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\dropify\dist\js\dropify.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\dropzone-master\dist\dropzone.css" />
+    <Content Include="Content\admin-press\assets\plugins\dropzone-master\dist\dropzone.js" />
+    <Content Include="Content\admin-press\assets\plugins\echarts\echarts-all.js" />
+    <Content Include="Content\admin-press\assets\plugins\echarts\echarts-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\flot.tooltip\js\jquery.flot.tooltip.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\flot\excanvas.js" />
+    <Content Include="Content\admin-press\assets\plugins\flot\jquery.flot.crosshair.js" />
+    <Content Include="Content\admin-press\assets\plugins\flot\jquery.flot.js" />
+    <Content Include="Content\admin-press\assets\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Content\admin-press\assets\plugins\flot\jquery.flot.stack.js" />
+    <Content Include="Content\admin-press\assets\plugins\flot\jquery.flot.time.js" />
+    <Content Include="Content\admin-press\assets\plugins\footable\css\footable.core.css" />
+    <Content Include="Content\admin-press\assets\plugins\footable\js\footable.all.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\gauge\gauge.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\gmaps\gmaps.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\gmaps\jquery.gmaps.js" />
+    <Content Include="Content\admin-press\assets\plugins\gridstack\gridstack.css" />
+    <Content Include="Content\admin-press\assets\plugins\gridstack\gridstack.jQueryUI.js" />
+    <Content Include="Content\admin-press\assets\plugins\gridstack\gridstack.js" />
+    <Content Include="Content\admin-press\assets\plugins\gridstack\lodash.js" />
+    <Content Include="Content\admin-press\assets\plugins\horizontal-timeline\css\horizontal-timeline.css" />
+    <Content Include="Content\admin-press\assets\plugins\horizontal-timeline\js\horizontal-timeline.js" />
+    <Content Include="Content\admin-press\assets\plugins\html5-editor\bootstrap-wysihtml5.css" />
+    <Content Include="Content\admin-press\assets\plugins\html5-editor\bootstrap-wysihtml5.js" />
+    <Content Include="Content\admin-press\assets\plugins\html5-editor\wysihtml5-0.3.0.js" />
+    <Content Include="Content\admin-press\assets\plugins\icheck\icheck.init.js" />
+    <Content Include="Content\admin-press\assets\plugins\icheck\icheck.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\icheck\skins\all.css" />
+    <Content Include="Content\admin-press\assets\plugins\inputmask\dist\min\jquery.inputmask.bundle.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\ion-rangeslider\css\ion.rangeSlider.css" />
+    <Content Include="Content\admin-press\assets\plugins\ion-rangeslider\css\ion.rangeSlider.skinModern.css" />
+    <Content Include="Content\admin-press\assets\plugins\ion-rangeslider\js\ion-rangeSlider\ion.rangeSlider-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\ion-rangeslider\js\ion-rangeSlider\ion.rangeSlider.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\jquery-asColorPicker-master\css\asColorPicker.css" />
+    <Content Include="Content\admin-press\assets\plugins\jquery-asColorPicker-master\dist\jquery-asColorPicker.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\jquery-asColorPicker-master\libs\jquery-asColor.js" />
+    <Content Include="Content\admin-press\assets\plugins\jquery-asColorPicker-master\libs\jquery-asGradient.js" />
+    <Content Include="Content\admin-press\assets\plugins\jquery-datatables-editable\jquery.dataTables.js" />
+    <Content Include="Content\admin-press\assets\plugins\jquery.easy-pie-chart\dist\jquery.easypiechart.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\jquery.easy-pie-chart\easy-pie-chart.init.js" />
+    <Content Include="Content\admin-press\assets\plugins\jqueryui\jquery-ui.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\jquery\jquery.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\jsgrid\db.js" />
+    <Content Include="Content\admin-press\assets\plugins\knob\jquery.knob.js" />
+    <Content Include="Content\admin-press\assets\plugins\Magnific-Popup-master\dist\jquery.magnific-popup-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\Magnific-Popup-master\dist\jquery.magnific-popup.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\Magnific-Popup-master\dist\magnific-popup.css" />
+    <Content Include="Content\admin-press\assets\plugins\moment\min\moment.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\moment\moment.js" />
+    <Content Include="Content\admin-press\assets\plugins\morrisjs\morris.css" />
+    <Content Include="Content\admin-press\assets\plugins\morrisjs\morris.js" />
+    <Content Include="Content\admin-press\assets\plugins\morrisjs\morris.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\multiselect\css\multi-select.css" />
+    <Content Include="Content\admin-press\assets\plugins\multiselect\js\jquery.multi-select.js" />
+    <Content Include="Content\admin-press\assets\plugins\nestable\jquery.nestable.js" />
+    <Content Include="Content\admin-press\assets\plugins\nestable\nestable.css" />
+    <Content Include="Content\admin-press\assets\plugins\peity\jquery.peity.init.js" />
+    <Content Include="Content\admin-press\assets\plugins\peity\jquery.peity.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\popper\popper.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\raphael\raphael-min.js" />
+    <Content Include="Content\admin-press\assets\plugins\select2\dist\css\select2.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\select2\dist\js\select2.full.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\session-timeout\idle\jquery.idletimeout.js" />
+    <Content Include="Content\admin-press\assets\plugins\session-timeout\idle\jquery.idletimer.js" />
+    <Content Include="Content\admin-press\assets\plugins\session-timeout\idle\session-timeout-idle-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\session-timeout\jquery.sessionTimeout.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\session-timeout\session-timeout-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\skycons\skycons.js" />
+    <Content Include="Content\admin-press\assets\plugins\sparkline\jquery.charts-sparkline.js" />
+    <Content Include="Content\admin-press\assets\plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\sticky-kit-master\dist\sticky-kit.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\styleswitcher\jQuery.style.switcher.js" />
+    <Content Include="Content\admin-press\assets\plugins\summernote\dist\summernote.css" />
+    <Content Include="Content\admin-press\assets\plugins\summernote\dist\summernote.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\sweetalert\jquery.sweet-alert.custom.js" />
+    <Content Include="Content\admin-press\assets\plugins\sweetalert\sweetalert.css" />
+    <Content Include="Content\admin-press\assets\plugins\sweetalert\sweetalert.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\switchery\dist\switchery.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\switchery\dist\switchery.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\tablesaw-master\dist\tablesaw-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\tablesaw-master\dist\tablesaw.css" />
+    <Content Include="Content\admin-press\assets\plugins\tablesaw-master\dist\tablesaw.js" />
+    <Content Include="Content\admin-press\assets\plugins\timepicker\bootstrap-timepicker.min.css" />
+    <Content Include="Content\admin-press\assets\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\tiny-editable\mindmup-editabletable.js" />
+    <Content Include="Content\admin-press\assets\plugins\tiny-editable\numeric-input-example.js" />
+    <Content Include="Content\admin-press\assets\plugins\tinymce\tinymce.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\toast-master\css\jquery.toast.css" />
+    <Content Include="Content\admin-press\assets\plugins\toast-master\js\jquery.toast.js" />
+    <Content Include="Content\admin-press\assets\plugins\typeahead.js-master\dist\typeahead-init.js" />
+    <Content Include="Content\admin-press\assets\plugins\typeahead.js-master\dist\typeahead.bundle.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\typeahead.js-master\dist\typehead-min.css" />
+    <Content Include="Content\admin-press\assets\plugins\vectormap\jquery-jvectormap-2.0.2.css" />
+    <Content Include="Content\admin-press\assets\plugins\vectormap\jquery-jvectormap-2.0.2.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\vectormap\jquery-jvectormap-au-mill.js" />
+    <Content Include="Content\admin-press\assets\plugins\vectormap\jquery-jvectormap-in-mill.js" />
+    <Content Include="Content\admin-press\assets\plugins\vectormap\jquery-jvectormap-uk-mill-en.js" />
+    <Content Include="Content\admin-press\assets\plugins\vectormap\jquery-jvectormap-us-aea-en.js" />
+    <Content Include="Content\admin-press\assets\plugins\vectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Content\admin-press\assets\plugins\vectormap\jvectormap.custom.js" />
+    <Content Include="Content\admin-press\assets\plugins\wizard\jquery.steps.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\wizard\jquery.validate.min.js" />
+    <Content Include="Content\admin-press\assets\plugins\wizard\steps.css" />
+    <Content Include="Content\admin-press\assets\plugins\wizard\steps.js" />
+    <Content Include="Content\admin-press\assets\plugins\x-editable\dist\bootstrap3-editable\css\bootstrap-editable.css" />
+    <Content Include="Content\admin-press\assets\plugins\x-editable\dist\bootstrap3-editable\js\bootstrap-editable.js" />
+    <Content Include="Content\admin-press\dark\app-calendar.html" />
+    <Content Include="Content\admin-press\dark\app-chat.html" />
+    <Content Include="Content\admin-press\dark\app-contact-detail.html" />
+    <Content Include="Content\admin-press\dark\app-contact.html" />
+    <Content Include="Content\admin-press\dark\app-contact2.html" />
+    <Content Include="Content\admin-press\dark\app-email.html" />
+    <Content Include="Content\admin-press\dark\app-ticket.html" />
+    <Content Include="Content\admin-press\dark\chart-chart-js.html" />
+    <Content Include="Content\admin-press\dark\chart-chartist.html" />
+    <Content Include="Content\admin-press\dark\chart-echart.html" />
+    <Content Include="Content\admin-press\dark\chart-extra-chart.html" />
+    <Content Include="Content\admin-press\dark\chart-flot.html" />
+    <Content Include="Content\admin-press\dark\chart-knob.html" />
+    <Content Include="Content\admin-press\dark\chart-morris.html" />
+    <Content Include="Content\admin-press\dark\chart-peity.html" />
+    <Content Include="Content\admin-press\dark\chart-sparkline.html" />
+    <Content Include="Content\admin-press\dark\css\colors\blue-dark.css" />
+    <Content Include="Content\admin-press\dark\css\style.css" />
+    <Content Include="Content\admin-press\dark\dark.html" />
+    <Content Include="Content\admin-press\dark\form-addons.html" />
+    <Content Include="Content\admin-press\dark\form-basic.html" />
+    <Content Include="Content\admin-press\dark\form-bootstrap-validation.html" />
+    <Content Include="Content\admin-press\dark\form-bootstrapwysihtml5.html" />
+    <Content Include="Content\admin-press\dark\form-dropzone.html" />
+    <Content Include="Content\admin-press\dark\form-float-input.html" />
+    <Content Include="Content\admin-press\dark\form-icheck.html" />
+    <Content Include="Content\admin-press\dark\form-img-cropper.html" />
+    <Content Include="Content\admin-press\dark\form-layout.html" />
+    <Content Include="Content\admin-press\dark\form-mask.html" />
+    <Content Include="Content\admin-press\dark\form-material.html" />
+    <Content Include="Content\admin-press\dark\form-pickers.html" />
+    <Content Include="Content\admin-press\dark\form-summernote.html" />
+    <Content Include="Content\admin-press\dark\form-tinymce.html" />
+    <Content Include="Content\admin-press\dark\form-typehead.html" />
+    <Content Include="Content\admin-press\dark\form-upload.html" />
+    <Content Include="Content\admin-press\dark\form-validation.html" />
+    <Content Include="Content\admin-press\dark\form-wizard.html" />
+    <Content Include="Content\admin-press\dark\form-xeditable.html" />
+    <Content Include="Content\admin-press\dark\icon-flag.html" />
+    <Content Include="Content\admin-press\dark\icon-fontawesome.html" />
+    <Content Include="Content\admin-press\dark\icon-linea.html" />
+    <Content Include="Content\admin-press\dark\icon-material.html" />
+    <Content Include="Content\admin-press\dark\icon-simple-lineicon.html" />
+    <Content Include="Content\admin-press\dark\icon-themify.html" />
+    <Content Include="Content\admin-press\dark\icon-weather.html" />
+    <Content Include="Content\admin-press\dark\index.html" />
+    <Content Include="Content\admin-press\dark\index2.html" />
+    <Content Include="Content\admin-press\dark\index3.html" />
+    <Content Include="Content\admin-press\dark\index4.html" />
+    <Content Include="Content\admin-press\dark\js\chat.js" />
+    <Content Include="Content\admin-press\dark\js\custom.min.js" />
+    <Content Include="Content\admin-press\dark\js\dashboard1.js" />
+    <Content Include="Content\admin-press\dark\js\dashboard2.js" />
+    <Content Include="Content\admin-press\dark\js\dashboard3.js" />
+    <Content Include="Content\admin-press\dark\js\dashboard4.js" />
+    <Content Include="Content\admin-press\dark\js\flot-data.js" />
+    <Content Include="Content\admin-press\dark\js\footable-init.js" />
+    <Content Include="Content\admin-press\dark\js\jasny-bootstrap.js" />
+    <Content Include="Content\admin-press\dark\js\jquery.PrintArea.js" />
+    <Content Include="Content\admin-press\dark\js\jquery.slimscroll.js" />
+    <Content Include="Content\admin-press\dark\js\jsgrid-init.js" />
+    <Content Include="Content\admin-press\dark\js\mask.init.js" />
+    <Content Include="Content\admin-press\dark\js\morris-data.js" />
+    <Content Include="Content\admin-press\dark\js\sidebarmenu.js" />
+    <Content Include="Content\admin-press\dark\js\toastr.js" />
+    <Content Include="Content\admin-press\dark\js\validation.js" />
+    <Content Include="Content\admin-press\dark\js\waves.js" />
+    <Content Include="Content\admin-press\dark\js\widget-data.js" />
+    <Content Include="Content\admin-press\dark\layout-boxed.html" />
+    <Content Include="Content\admin-press\dark\layout-fix-header-sidebar.html" />
+    <Content Include="Content\admin-press\dark\layout-fix-header.html" />
+    <Content Include="Content\admin-press\dark\layout-fix-sidebar.html" />
+    <Content Include="Content\admin-press\dark\layout-logo-center.html" />
+    <Content Include="Content\admin-press\dark\layout-single-column.html" />
+    <Content Include="Content\admin-press\dark\map-google.html" />
+    <Content Include="Content\admin-press\dark\map-vector.html" />
+    <Content Include="Content\admin-press\dark\pages-animation.html" />
+    <Content Include="Content\admin-press\dark\pages-blank.html" />
+    <Content Include="Content\admin-press\dark\pages-error-400.html" />
+    <Content Include="Content\admin-press\dark\pages-error-403.html" />
+    <Content Include="Content\admin-press\dark\pages-error-404.html" />
+    <Content Include="Content\admin-press\dark\pages-error-500.html" />
+    <Content Include="Content\admin-press\dark\pages-error-503.html" />
+    <Content Include="Content\admin-press\dark\pages-faq.html" />
+    <Content Include="Content\admin-press\dark\pages-fix-inner-right-sidebar.html" />
+    <Content Include="Content\admin-press\dark\pages-fix-innersidebar.html" />
+    <Content Include="Content\admin-press\dark\pages-gallery.html" />
+    <Content Include="Content\admin-press\dark\pages-invoice.html" />
+    <Content Include="Content\admin-press\dark\pages-lightbox-popup.html" />
+    <Content Include="Content\admin-press\dark\pages-lockscreen.html" />
+    <Content Include="Content\admin-press\dark\pages-login-2.html" />
+    <Content Include="Content\admin-press\dark\pages-login.html" />
+    <Content Include="Content\admin-press\dark\pages-pricing.html" />
+    <Content Include="Content\admin-press\dark\pages-profile.html" />
+    <Content Include="Content\admin-press\dark\pages-recover-password.html" />
+    <Content Include="Content\admin-press\dark\pages-register.html" />
+    <Content Include="Content\admin-press\dark\pages-register2.html" />
+    <Content Include="Content\admin-press\dark\pages-scroll.html" />
+    <Content Include="Content\admin-press\dark\pages-search-result.html" />
+    <Content Include="Content\admin-press\dark\pages-treeview.html" />
+    <Content Include="Content\admin-press\dark\pages-utility-classes.html" />
+    <Content Include="Content\admin-press\dark\profile.html" />
+    <Content Include="Content\admin-press\dark\starter-kit.html" />
+    <Content Include="Content\admin-press\dark\table-basic.html" />
+    <Content Include="Content\admin-press\dark\table-bootstrap.html" />
+    <Content Include="Content\admin-press\dark\table-data-table.html" />
+    <Content Include="Content\admin-press\dark\table-editable-table.html" />
+    <Content Include="Content\admin-press\dark\table-footable.html" />
+    <Content Include="Content\admin-press\dark\table-jsgrid.html" />
+    <Content Include="Content\admin-press\dark\table-layout.html" />
+    <Content Include="Content\admin-press\dark\table-responsive.html" />
+    <Content Include="Content\admin-press\dark\ui-breadcrumb.html" />
+    <Content Include="Content\admin-press\dark\ui-carousel.html" />
+    <Content Include="Content\admin-press\dark\ui-date-paginator.html" />
+    <Content Include="Content\admin-press\dark\ui-dragable-portlet.html" />
+    <Content Include="Content\admin-press\dark\ui-grid.html" />
+    <Content Include="Content\admin-press\dark\ui-list-media.html" />
+    <Content Include="Content\admin-press\dark\ui-nestable.html" />
+    <Content Include="Content\admin-press\dark\ui-notification.html" />
+    <Content Include="Content\admin-press\dark\ui-progressbar.html" />
+    <Content Include="Content\admin-press\dark\ui-ribbons.html" />
+    <Content Include="Content\admin-press\dark\ui-scrollspy.html" />
+    <Content Include="Content\admin-press\dark\ui-session-ideal-timeout.html" />
+    <Content Include="Content\admin-press\dark\ui-spinner.html" />
+    <Content Include="Content\admin-press\dark\ui-sweetalert.html" />
+    <Content Include="Content\admin-press\dark\ui-timeline.html" />
+    <Content Include="Content\admin-press\dark\ui-toasts.html" />
+    <Content Include="Content\admin-press\dark\ui-tooltip-popover.html" />
+    <Content Include="Content\admin-press\dark\ui-tooltip-stylish.html" />
+    <Content Include="Content\admin-press\dark\widget-apps.html" />
+    <Content Include="Content\admin-press\dark\widget-data.html" />
+    <Content Include="Content\admin-press\horizontal\app-calendar.html" />
+    <Content Include="Content\admin-press\horizontal\app-chat.html" />
+    <Content Include="Content\admin-press\horizontal\app-compose.html" />
+    <Content Include="Content\admin-press\horizontal\app-contact-detail.html" />
+    <Content Include="Content\admin-press\horizontal\app-contact.html" />
+    <Content Include="Content\admin-press\horizontal\app-contact2.html" />
+    <Content Include="Content\admin-press\horizontal\app-email-detail.html" />
+    <Content Include="Content\admin-press\horizontal\app-email.html" />
+    <Content Include="Content\admin-press\horizontal\app-ticket.html" />
+    <Content Include="Content\admin-press\horizontal\chart-chart-js.html" />
+    <Content Include="Content\admin-press\horizontal\chart-chartist.html" />
+    <Content Include="Content\admin-press\horizontal\chart-echart.html" />
+    <Content Include="Content\admin-press\horizontal\chart-extra-chart.html" />
+    <Content Include="Content\admin-press\horizontal\chart-flot.html" />
+    <Content Include="Content\admin-press\horizontal\chart-knob.html" />
+    <Content Include="Content\admin-press\horizontal\chart-morris.html" />
+    <Content Include="Content\admin-press\horizontal\chart-peity.html" />
+    <Content Include="Content\admin-press\horizontal\chart-sparkline.html" />
+    <Content Include="Content\admin-press\horizontal\css\colors\blue.css" />
+    <Content Include="Content\admin-press\horizontal\css\style.css" />
+    <Content Include="Content\admin-press\horizontal\form-bootstrap-validation.html" />
+    <Content Include="Content\admin-press\horizontal\form-bootstrapwysihtml5.html" />
+    <Content Include="Content\admin-press\horizontal\form-dropzone.html" />
+    <Content Include="Content\admin-press\horizontal\form-float-input.html" />
+    <Content Include="Content\admin-press\horizontal\form-icheck.html" />
+    <Content Include="Content\admin-press\horizontal\form-img-cropper.html" />
+    <Content Include="Content\admin-press\horizontal\form-layout.html" />
+    <Content Include="Content\admin-press\horizontal\form-mask.html" />
+    <Content Include="Content\admin-press\horizontal\form-material.html" />
+    <Content Include="Content\admin-press\horizontal\form-pickers.html" />
+    <Content Include="Content\admin-press\horizontal\form-summernote.html" />
+    <Content Include="Content\admin-press\horizontal\form-tinymce.html" />
+    <Content Include="Content\admin-press\horizontal\form-typehead.html" />
+    <Content Include="Content\admin-press\horizontal\form-upload.html" />
+    <Content Include="Content\admin-press\horizontal\form-validation.html" />
+    <Content Include="Content\admin-press\horizontal\form-wizard.html" />
+    <Content Include="Content\admin-press\horizontal\form-xeditable.html" />
+    <Content Include="Content\admin-press\horizontal\horizontal.html" />
+    <Content Include="Content\admin-press\horizontal\icon-flag.html" />
+    <Content Include="Content\admin-press\horizontal\icon-fontawesome.html" />
+    <Content Include="Content\admin-press\horizontal\icon-linea.html" />
+    <Content Include="Content\admin-press\horizontal\icon-material.html" />
+    <Content Include="Content\admin-press\horizontal\icon-simple-lineicon.html" />
+    <Content Include="Content\admin-press\horizontal\icon-themify.html" />
+    <Content Include="Content\admin-press\horizontal\icon-weather.html" />
+    <Content Include="Content\admin-press\horizontal\index.html" />
+    <Content Include="Content\admin-press\horizontal\index2.html" />
+    <Content Include="Content\admin-press\horizontal\index3.html" />
+    <Content Include="Content\admin-press\horizontal\index4.html" />
+    <Content Include="Content\admin-press\horizontal\js\chat.js" />
+    <Content Include="Content\admin-press\horizontal\js\custom.min.js" />
+    <Content Include="Content\admin-press\horizontal\js\dashboard1.js" />
+    <Content Include="Content\admin-press\horizontal\js\dashboard2.js" />
+    <Content Include="Content\admin-press\horizontal\js\dashboard3.js" />
+    <Content Include="Content\admin-press\horizontal\js\dashboard4.js" />
+    <Content Include="Content\admin-press\horizontal\js\flot-data.js" />
+    <Content Include="Content\admin-press\horizontal\js\footable-init.js" />
+    <Content Include="Content\admin-press\horizontal\js\jasny-bootstrap.js" />
+    <Content Include="Content\admin-press\horizontal\js\jquery.PrintArea.js" />
+    <Content Include="Content\admin-press\horizontal\js\jquery.slimscroll.js" />
+    <Content Include="Content\admin-press\horizontal\js\jsgrid-init.js" />
+    <Content Include="Content\admin-press\horizontal\js\mask.init.js" />
+    <Content Include="Content\admin-press\horizontal\js\morris-data.js" />
+    <Content Include="Content\admin-press\horizontal\js\sidebarmenu.js" />
+    <Content Include="Content\admin-press\horizontal\js\toastr.js" />
+    <Content Include="Content\admin-press\horizontal\js\validation.js" />
+    <Content Include="Content\admin-press\horizontal\js\waves.js" />
+    <Content Include="Content\admin-press\horizontal\js\widget-data.js" />
+    <Content Include="Content\admin-press\horizontal\layout-boxed.html" />
+    <Content Include="Content\admin-press\horizontal\layout-fix-header-sidebar.html" />
+    <Content Include="Content\admin-press\horizontal\layout-fix-header.html" />
+    <Content Include="Content\admin-press\horizontal\layout-fix-sidebar.html" />
+    <Content Include="Content\admin-press\horizontal\layout-logo-center.html" />
+    <Content Include="Content\admin-press\horizontal\layout-single-column.html" />
+    <Content Include="Content\admin-press\horizontal\map-google.html" />
+    <Content Include="Content\admin-press\horizontal\map-vector.html" />
+    <Content Include="Content\admin-press\horizontal\pages-animation.html" />
+    <Content Include="Content\admin-press\horizontal\pages-error-400.html" />
+    <Content Include="Content\admin-press\horizontal\pages-error-403.html" />
+    <Content Include="Content\admin-press\horizontal\pages-error-404.html" />
+    <Content Include="Content\admin-press\horizontal\pages-error-503.html" />
+    <Content Include="Content\admin-press\horizontal\pages-faq.html" />
+    <Content Include="Content\admin-press\horizontal\pages-fix-inner-right-sidebar.html" />
+    <Content Include="Content\admin-press\horizontal\pages-fix-innersidebar.html" />
+    <Content Include="Content\admin-press\horizontal\pages-gallery.html" />
+    <Content Include="Content\admin-press\horizontal\pages-invoice.html" />
+    <Content Include="Content\admin-press\horizontal\pages-lightbox-popup.html" />
+    <Content Include="Content\admin-press\horizontal\pages-lockscreen.html" />
+    <Content Include="Content\admin-press\horizontal\pages-login-2.html" />
+    <Content Include="Content\admin-press\horizontal\pages-login.html" />
+    <Content Include="Content\admin-press\horizontal\pages-pricing.html" />
+    <Content Include="Content\admin-press\horizontal\pages-profile.html" />
+    <Content Include="Content\admin-press\horizontal\pages-recover-password.html" />
+    <Content Include="Content\admin-press\horizontal\pages-register.html" />
+    <Content Include="Content\admin-press\horizontal\pages-register2.html" />
+    <Content Include="Content\admin-press\horizontal\pages-scroll.html" />
+    <Content Include="Content\admin-press\horizontal\pages-search-result.html" />
+    <Content Include="Content\admin-press\horizontal\pages-treeview.html" />
+    <Content Include="Content\admin-press\horizontal\pages-utility-classes.html" />
+    <Content Include="Content\admin-press\horizontal\starter-kit.html" />
+    <Content Include="Content\admin-press\horizontal\table-basic.html" />
+    <Content Include="Content\admin-press\horizontal\table-bootstrap.html" />
+    <Content Include="Content\admin-press\horizontal\table-data-table.html" />
+    <Content Include="Content\admin-press\horizontal\table-editable-table.html" />
+    <Content Include="Content\admin-press\horizontal\table-footable.html" />
+    <Content Include="Content\admin-press\horizontal\table-jsgrid.html" />
+    <Content Include="Content\admin-press\horizontal\table-layout.html" />
+    <Content Include="Content\admin-press\horizontal\table-responsive.html" />
+    <Content Include="Content\admin-press\horizontal\ui-bootstrap-switch.html" />
+    <Content Include="Content\admin-press\horizontal\ui-bootstrap.html" />
+    <Content Include="Content\admin-press\horizontal\ui-breadcrumb.html" />
+    <Content Include="Content\admin-press\horizontal\ui-buttons.html" />
+    <Content Include="Content\admin-press\horizontal\ui-cards.html" />
+    <Content Include="Content\admin-press\horizontal\ui-carousel.html" />
+    <Content Include="Content\admin-press\horizontal\ui-date-paginator.html" />
+    <Content Include="Content\admin-press\horizontal\ui-dragable-portlet.html" />
+    <Content Include="Content\admin-press\horizontal\ui-grid.html" />
+    <Content Include="Content\admin-press\horizontal\ui-horizontal-timeline.html" />
+    <Content Include="Content\admin-press\horizontal\ui-list-media.html" />
+    <Content Include="Content\admin-press\horizontal\ui-nestable.html" />
+    <Content Include="Content\admin-press\horizontal\ui-notification.html" />
+    <Content Include="Content\admin-press\horizontal\ui-progressbar.html" />
+    <Content Include="Content\admin-press\horizontal\ui-range-slider.html" />
+    <Content Include="Content\admin-press\horizontal\ui-ribbons.html" />
+    <Content Include="Content\admin-press\horizontal\ui-scrollspy.html" />
+    <Content Include="Content\admin-press\horizontal\ui-session-ideal-timeout.html" />
+    <Content Include="Content\admin-press\horizontal\ui-session-timeout.html" />
+    <Content Include="Content\admin-press\horizontal\ui-spinner.html" />
+    <Content Include="Content\admin-press\horizontal\ui-sweetalert.html" />
+    <Content Include="Content\admin-press\horizontal\ui-timeline.html" />
+    <Content Include="Content\admin-press\horizontal\ui-toasts.html" />
+    <Content Include="Content\admin-press\horizontal\ui-tooltip-popover.html" />
+    <Content Include="Content\admin-press\horizontal\ui-tooltip-stylish.html" />
+    <Content Include="Content\admin-press\horizontal\ui-typography.html" />
+    <Content Include="Content\admin-press\horizontal\ui-user-card.html" />
+    <Content Include="Content\admin-press\horizontal\widget-apps.html" />
+    <Content Include="Content\admin-press\horizontal\widget-data.html" />
+    <Content Include="Content\admin-press\jquery.canvasjs.min.js" />
+    <Content Include="Content\admin-press\main\app-calendar.html" />
+    <Content Include="Content\admin-press\main\app-chat.html" />
+    <Content Include="Content\admin-press\main\app-compose.html" />
+    <Content Include="Content\admin-press\main\app-contact-detail.html" />
+    <Content Include="Content\admin-press\main\app-contact.html" />
+    <Content Include="Content\admin-press\main\app-contact2.html" />
+    <Content Include="Content\admin-press\main\app-email-detail.html" />
+    <Content Include="Content\admin-press\main\app-email.html" />
+    <Content Include="Content\admin-press\main\app-ticket.html" />
+    <Content Include="Content\admin-press\main\chart-chart-js.html" />
+    <Content Include="Content\admin-press\main\chart-chartist.html" />
+    <Content Include="Content\admin-press\main\chart-echart.html" />
+    <Content Include="Content\admin-press\main\chart-extra-chart.html" />
+    <Content Include="Content\admin-press\main\chart-flot.html" />
+    <Content Include="Content\admin-press\main\chart-knob.html" />
+    <Content Include="Content\admin-press\main\chart-morris.html" />
+    <Content Include="Content\admin-press\main\chart-peity.html" />
+    <Content Include="Content\admin-press\main\chart-sparkline.html" />
+    <Content Include="Content\admin-press\main\css\colors\blue.css" />
+    <Content Include="Content\admin-press\main\css\style.css" />
+    <Content Include="Content\admin-press\main\form-addons.html" />
+    <Content Include="Content\admin-press\main\form-basic.html" />
+    <Content Include="Content\admin-press\main\form-bootstrap-validation.html" />
+    <Content Include="Content\admin-press\main\form-bootstrapwysihtml5.html" />
+    <Content Include="Content\admin-press\main\form-dropzone.html" />
+    <Content Include="Content\admin-press\main\form-float-input.html" />
+    <Content Include="Content\admin-press\main\form-icheck.html" />
+    <Content Include="Content\admin-press\main\form-img-cropper.html" />
+    <Content Include="Content\admin-press\main\form-layout.html" />
+    <Content Include="Content\admin-press\main\form-mask.html" />
+    <Content Include="Content\admin-press\main\form-material.html" />
+    <Content Include="Content\admin-press\main\form-pickers.html" />
+    <Content Include="Content\admin-press\main\form-summernote.html" />
+    <Content Include="Content\admin-press\main\form-tinymce.html" />
+    <Content Include="Content\admin-press\main\form-typehead.html" />
+    <Content Include="Content\admin-press\main\form-upload.html" />
+    <Content Include="Content\admin-press\main\form-validation.html" />
+    <Content Include="Content\admin-press\main\form-wizard.html" />
+    <Content Include="Content\admin-press\main\form-xeditable.html" />
+    <Content Include="Content\admin-press\main\icon-flag.html" />
+    <Content Include="Content\admin-press\main\icon-fontawesome.html" />
+    <Content Include="Content\admin-press\main\icon-linea.html" />
+    <Content Include="Content\admin-press\main\icon-material.html" />
+    <Content Include="Content\admin-press\main\icon-simple-lineicon.html" />
+    <Content Include="Content\admin-press\main\icon-themify.html" />
+    <Content Include="Content\admin-press\main\index.html" />
+    <Content Include="Content\admin-press\main\index2.html" />
+    <Content Include="Content\admin-press\main\index3.html" />
+    <Content Include="Content\admin-press\main\index4.html" />
+    <Content Include="Content\admin-press\main\js\chat.js" />
+    <Content Include="Content\admin-press\main\js\custom.min.js" />
+    <Content Include="Content\admin-press\main\js\dashboard1.js" />
+    <Content Include="Content\admin-press\main\js\dashboard2.js" />
+    <Content Include="Content\admin-press\main\js\dashboard3.js" />
+    <Content Include="Content\admin-press\main\js\dashboard4.js" />
+    <Content Include="Content\admin-press\main\js\flot-data.js" />
+    <Content Include="Content\admin-press\main\js\footable-init.js" />
+    <Content Include="Content\admin-press\main\js\jasny-bootstrap.js" />
+    <Content Include="Content\admin-press\main\js\jquery.PrintArea.js" />
+    <Content Include="Content\admin-press\main\js\jquery.slimscroll.js" />
+    <Content Include="Content\admin-press\main\js\jsgrid-init.js" />
+    <Content Include="Content\admin-press\main\js\mask.init.js" />
+    <Content Include="Content\admin-press\main\js\morris-data.js" />
+    <Content Include="Content\admin-press\main\js\sidebarmenu.js" />
+    <Content Include="Content\admin-press\main\js\toastr.js" />
+    <Content Include="Content\admin-press\main\js\validation.js" />
+    <Content Include="Content\admin-press\main\js\waves.js" />
+    <Content Include="Content\admin-press\main\js\widget-data.js" />
+    <Content Include="Content\admin-press\main\layout-boxed.html" />
+    <Content Include="Content\admin-press\main\layout-fix-header-sidebar.html" />
+    <Content Include="Content\admin-press\main\layout-fix-header.html" />
+    <Content Include="Content\admin-press\main\layout-fix-sidebar.html" />
+    <Content Include="Content\admin-press\main\layout-logo-center.html" />
+    <Content Include="Content\admin-press\main\layout-single-column.html" />
+    <Content Include="Content\admin-press\main\main.html" />
+    <Content Include="Content\admin-press\main\map-google.html" />
+    <Content Include="Content\admin-press\main\map-vector.html" />
+    <Content Include="Content\admin-press\main\pages-animation.html" />
+    <Content Include="Content\admin-press\main\pages-blank.html" />
+    <Content Include="Content\admin-press\main\pages-error-400.html" />
+    <Content Include="Content\admin-press\main\pages-error-403.html" />
+    <Content Include="Content\admin-press\main\pages-error-404.html" />
+    <Content Include="Content\admin-press\main\pages-error-500.html" />
+    <Content Include="Content\admin-press\main\pages-error-503.html" />
+    <Content Include="Content\admin-press\main\pages-faq.html" />
+    <Content Include="Content\admin-press\main\pages-fix-inner-right-sidebar.html" />
+    <Content Include="Content\admin-press\main\pages-fix-innersidebar.html" />
+    <Content Include="Content\admin-press\main\pages-gallery.html" />
+    <Content Include="Content\admin-press\main\pages-invoice.html" />
+    <Content Include="Content\admin-press\main\pages-lightbox-popup.html" />
+    <Content Include="Content\admin-press\main\pages-lockscreen.html" />
+    <Content Include="Content\admin-press\main\pages-login-2.html" />
+    <Content Include="Content\admin-press\main\pages-login.html" />
+    <Content Include="Content\admin-press\main\pages-pricing.html" />
+    <Content Include="Content\admin-press\main\pages-profile.html" />
+    <Content Include="Content\admin-press\main\pages-recover-password.html" />
+    <Content Include="Content\admin-press\main\pages-register.html" />
+    <Content Include="Content\admin-press\main\pages-register2.html" />
+    <Content Include="Content\admin-press\main\pages-scroll.html" />
+    <Content Include="Content\admin-press\main\pages-search-result.html" />
+    <Content Include="Content\admin-press\main\pages-treeview.html" />
+    <Content Include="Content\admin-press\main\pages-utility-classes.html" />
+    <Content Include="Content\admin-press\main\profile.html" />
+    <Content Include="Content\admin-press\main\starter-kit.html" />
+    <Content Include="Content\admin-press\main\table-basic.html" />
+    <Content Include="Content\admin-press\main\table-bootstrap.html" />
+    <Content Include="Content\admin-press\main\table-data-table.html" />
+    <Content Include="Content\admin-press\main\table-editable-table.html" />
+    <Content Include="Content\admin-press\main\table-footable.html" />
+    <Content Include="Content\admin-press\main\table-jsgrid.html" />
+    <Content Include="Content\admin-press\main\table-layout.html" />
+    <Content Include="Content\admin-press\main\table-responsive.html" />
+    <Content Include="Content\admin-press\main\ui-bootstrap-switch.html" />
+    <Content Include="Content\admin-press\main\ui-bootstrap.html" />
+    <Content Include="Content\admin-press\main\ui-breadcrumb.html" />
+    <Content Include="Content\admin-press\main\ui-buttons.html" />
+    <Content Include="Content\admin-press\main\ui-cards.html" />
+    <Content Include="Content\admin-press\main\ui-carousel.html" />
+    <Content Include="Content\admin-press\main\ui-date-paginator.html" />
+    <Content Include="Content\admin-press\main\ui-dragable-portlet.html" />
+    <Content Include="Content\admin-press\main\ui-grid.html" />
+    <Content Include="Content\admin-press\main\ui-horizontal-timeline.html" />
+    <Content Include="Content\admin-press\main\ui-list-media.html" />
+    <Content Include="Content\admin-press\main\ui-modals.html" />
+    <Content Include="Content\admin-press\main\ui-nestable.html" />
+    <Content Include="Content\admin-press\main\ui-notification.html" />
+    <Content Include="Content\admin-press\main\ui-progressbar.html" />
+    <Content Include="Content\admin-press\main\ui-range-slider.html" />
+    <Content Include="Content\admin-press\main\ui-ribbons.html" />
+    <Content Include="Content\admin-press\main\ui-scrollspy.html" />
+    <Content Include="Content\admin-press\main\ui-session-ideal-timeout.html" />
+    <Content Include="Content\admin-press\main\ui-session-timeout.html" />
+    <Content Include="Content\admin-press\main\ui-spinner.html" />
+    <Content Include="Content\admin-press\main\ui-sweetalert.html" />
+    <Content Include="Content\admin-press\main\ui-tab.html" />
+    <Content Include="Content\admin-press\main\ui-timeline.html" />
+    <Content Include="Content\admin-press\main\ui-toasts.html" />
+    <Content Include="Content\admin-press\main\ui-tooltip-popover.html" />
+    <Content Include="Content\admin-press\main\ui-tooltip-stylish.html" />
+    <Content Include="Content\admin-press\main\ui-typography.html" />
+    <Content Include="Content\admin-press\main\ui-user-card.html" />
+    <Content Include="Content\admin-press\main\widget-apps.html" />
+    <Content Include="Content\admin-press\main\widget-data.html" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Db\DbModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbModels.edmx</DependentUpon>
+      <LastGenOutput>DbModels.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Db\DbModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbModels.edmx</DependentUpon>
+      <LastGenOutput>DbModels.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Reporting\PredictedAndActualDataReportWebForm.aspx" />
+    <Content Include="Reporting\ReportWebForm.aspx" />
+    <EntityDeploy Include="Db\DbModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Db\DbModels.edmx.diagram">
+      <DependentUpon>DbModels.edmx</DependentUpon>
+    </Content>
+    <Content Include="IR_DBDataSet.xsc">
+      <DependentUpon>IR_DBDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="IR_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IR_DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="IR_DBDataSet.xss">
+      <DependentUpon>IR_DBDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reporting\DetailedReportDataSet.xsc">
+      <DependentUpon>DetailedReportDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="IR_DBFinalReportDataSet.xsc">
+      <DependentUpon>IR_DBFinalReportDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="IR_DBFinalReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IR_DBFinalReportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="IR_DBFinalReportDataSet.xss">
+      <DependentUpon>IR_DBFinalReportDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Reporting\DetailedReportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DetailedReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reporting\DetailedReportDataSet.xss">
+      <DependentUpon>DetailedReportDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\SidebarPartial.cshtml" />
+    <Content Include="Views\Shared\HeaderPartial.cshtml" />
+    <Content Include="Views\Account\ListUsers.cshtml" />
+    <Content Include="Views\Projects\Index.cshtml" />
+    <Content Include="Views\BeneficiariesRecords\Create.cshtml" />
+    <Content Include="Views\BeneficiariesRecords\Delete.cshtml" />
+    <Content Include="Views\BeneficiariesRecords\Details.cshtml" />
+    <Content Include="Views\BeneficiariesRecords\Edit.cshtml" />
+    <Content Include="Views\BeneficiariesRecords\Index.cshtml" />
+    <Content Include="Views\CountryBasicProjectDatas\Create.cshtml" />
+    <Content Include="Views\CountryBasicProjectDatas\Delete.cshtml" />
+    <Content Include="Views\CountryBasicProjectDatas\Details.cshtml" />
+    <Content Include="Views\CountryBasicProjectDatas\Edit.cshtml" />
+    <Content Include="Views\CountryBasicProjectDatas\Index.cshtml" />
+    <Content Include="Views\Projects\Details.cshtml" />
+    <Content Include="Views\Projects\Create.cshtml" />
+    <Content Include="Views\Projects\ListProjectWithMonths.cshtml" />
+    <Content Include="Views\DetailedReports\Index.cshtml" />
+    <Content Include="Views\ReportViewer\Index.cshtml" />
+    <Content Include="Views\Projects\Edit.cshtml" />
+    <Content Include="Views\BeneficiariesRecords\CreatePredictedData.cshtml" />
+    <Content Include="Views\BeneficiariesRecords\EditProjectPlannedData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\UploadedPdfs\" />
+    <Folder Include="Reports\" />
+    <Folder Include="Views\Default\" />
+    <Folder Include="Views\ReportViewerControlle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="bin\DetailedReport.rdlc" />
+    <EmbeddedResource Include="bin\PredictedAndActualDataReport.rdlc" />
+    <EmbeddedResource Include="Helpers\ProjectResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProjectResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307240855307_InitialCreate.resx">
+      <DependentUpon>202307240855307_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\DetailedReport.rdlc" />
+    <EmbeddedResource Include="Reporting\PredictedAndActualDataReport.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1181</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44354/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

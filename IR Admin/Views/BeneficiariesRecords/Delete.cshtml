@@ -1,0 +1,161 @@
+﻿@model IR_Admin.Db.BeneficiariesRecord
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BeneficiariesRecord</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AGEGROUP_0_5_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGEGROUP_0_5_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.C_AGEGROUP_6_12_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C_AGEGROUP_6_12_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGEGROUP_13_17_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGEGROUP_13_17_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGEGROUP_18_29_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGEGROUP_18_29_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGEGROUP_30_49_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGEGROUP_30_49_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGEGROUP_50_69_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGEGROUP_50_69_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGEGROUP_70_79_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGEGROUP_70_79_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AGEGROUP_80__)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AGEGROUP_80__)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TVET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TVET)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MSME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MSME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublicInfrastructure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublicInfrastructure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductiveFacility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductiveFacility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Month)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Month)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedTime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

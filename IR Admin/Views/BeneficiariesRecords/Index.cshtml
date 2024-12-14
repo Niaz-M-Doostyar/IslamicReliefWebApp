@@ -1,0 +1,170 @@
+﻿@model IEnumerable<IR_Admin.Db.CountryBasicProjectData>
+@using IR_Admin.Db
+@using IR_Admin.Helpers
+
+@{
+    ViewBag.Title = "List Projects";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link href="/Content/admin-press/assets/plugins/footable/css/footable.core.css" rel="stylesheet">
+<link href="/Content/admin-press/assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+<link href="/Content/admin-press/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+<script src="/Content/admin-press/assets/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="/Content/admin-press/assets/plugins/sweetalert/jquery.sweet-alert.custom.js"></script>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-themecolor">List Projects</h3>
+        </div>
+
+        <div>
+            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+        </div>
+    </div>
+
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            swal("Good job!", "Project Deleted Successfully", "success")
+        </script>
+    }
+    <script type="text/javascript">
+
+    </script>
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <!-- Column -->
+                <div class="card">
+                    <div class="card-body">
+                        <table id="demo-foo-addrow2" class="table table-bordered table-hover toggle-circle" data-page-size="7">
+                            <thead>
+                            <tr>
+                                <th>Predicated Data</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Country)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Duration)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ProjectLocation)
+                                </th>
+                                <th>
+                                    Period From
+                                </th>
+                                <th>
+                                    Period To
+                                </th>
+                                <th data-sort-ignore="true" class="min-width"> <button id="enableBtn" style="float: right; font-size: 12px;" class="btn btn-outline-inverse">Enable Button</button></th>
+                            </tr>
+                            </thead>
+                            <div class="m-t-40">
+                                <div class="d-flex">
+                                    <div class="mr-auto">
+                                        <div class="form-group">
+                                            @using (Html.BeginForm("Create", "BeneficiariesRecords", FormMethod.Get))
+                                            {
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="icon wb-plus" aria-hidden="true"></i>Add New Project
+                                                </button>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="form-group">
+                                            <input id="demo-input-search2" type="text" placeholder="Search" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @if (!ProjectHelper.CheckIfProjectDataExistsInPredicatedFlexibleInterventions(item.Id))
+                                            {
+                                                @Html.ActionLink("Add", "CreatePredictedData", "BeneficiariesRecords", new { id = item.Id }, new { @class = "btn btn-outline-primary", @id = "editButton", style = "font-size: 11px" })
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink("Edit", "EditProjectPlannedData", "BeneficiariesRecords", new { id = item.Id }, new { @class = "btn btn-outline-inverse", @id = "editButton", style = "font-size: 11px" })
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Country)
+                                        </td>
+                                        <td>@Html.DisplayFor(modelItem => item.Duration)</td>
+                                        <td>@ProjectHelper.GetProjectLocationByUsersId(item.ProjectLocation)</td>
+                                        <td>@item.ImplementationPeriodFrom.Value.Date.ToString("MM/dd/yyyy")</td>
+                                        <td>@item.ImplementationPeriodTo.Value.Date.ToString("MM/dd/yyyy")</td>
+
+                                        <td style="width: 140px">
+                                            @Html.ActionLink("Edit", "Edit", new {id = item.Id}, new {@class = "btn btn-outline-info", @id = "editButton", style = "font-size: 11px;"})
+                                            @if (User.Identity.Name.Equals("Admin"))
+                                            {
+                                                @Html.ActionLink("Delete", "Delete", new {id = item.Id}, new {@class = "btn btn-outline-danger", @id = "deleteButton", style = "font-size: 11px;"})
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="8">
+                                        <div class="text-right">
+                                            <ul class="pagination">
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section viewLibraries{
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="/Content/admin-press/main/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="/Content/admin-press/main/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="/Content/admin-press/main/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="/Content/admin-press/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="/Content/admin-press/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/Content/admin-press/main/js/custom.min.js"></script>
+    <!-- Footable -->
+    <script src="/Content/admin-press/assets/plugins/footable/js/footable.all.min.js"></script>
+    <script src="/Content/admin-press/assets/plugins/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+    <!--FooTable init-->
+    <script src="/Content/admin-press/main/js/footable-init.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="/Content/admin-press/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+    <script>
+        $('a').addClass('disabled');
+        document.getElementById('enableBtn').ondblclick = function () {
+            $("a").removeClass("disabled");
+        };
+    </script>
+}

@@ -1,0 +1,940 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IR_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ProvinceId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AssignUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProjectId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BeneficiariesRecords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AgeGroup" Type="nvarchar" MaxLength="200" />
+          <Property Name="CategoryId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Disability" Type="nvarchar" MaxLength="100" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Month" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedTime" Type="datetime" />
+          <Property Name="FlexibleInterventionsId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProvinceId" Type="uniqueidentifier" />
+          <Property Name="ProjectId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="BeneficiaryRecords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProjectId" Type="uniqueidentifier" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="200" />
+          <Property Name="Component" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProvinceId" Type="uniqueidentifier" />
+          <Property Name="District" Type="nvarchar" MaxLength="100" />
+          <Property Name="Village" Type="nvarchar" MaxLength="200" />
+          <Property Name="BeneficiaryName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="200" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="MaritalStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="TazkiraOrPassportNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Education" Type="nvarchar" MaxLength="100" />
+          <Property Name="HouseHoldStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="DisabilityStatus" Type="ntext" />
+          <Property Name="EconomicStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProjectId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="CountryBasicProjectData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Roll" Type="nvarchar" MaxLength="200" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="TypeOfProject" Type="nvarchar" MaxLength="100" />
+          <Property Name="SeasonalProjectType" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsOneDonar" Type="int" />
+          <Property Name="IRWProjectPinCode" Type="nvarchar" MaxLength="200" />
+          <Property Name="Donar/Partner" Type="nvarchar" MaxLength="200" />
+          <Property Name="PrimarySector" Type="nvarchar" MaxLength="200" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImplementationPeriodFrom" Type="datetime" />
+          <Property Name="ImplementationPeriodTo" Type="datetime" />
+          <Property Name="Region" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ScopeOfProject" Type="nvarchar" MaxLength="200" />
+          <Property Name="SDGGoalIndicator" Type="ntext" />
+          <Property Name="DirectRightHolders" Type="int" />
+        </EntityType>
+        <EntityType Name="CountryProjectSectorInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PrimarySector" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PrimarySectorTypeofCashProgrammingUnconditionalCash" Type="int" Nullable="false" />
+          <Property Name="PrimarySectorTypeofCashProgrammingConditionalCash" Type="int" Nullable="false" />
+          <Property Name="PrimarySectorTypeofCashProgrammingUnconditionalVouchers" Type="int" Nullable="false" />
+          <Property Name="PrimarySectorTypeofCashProgrammingConditionalVouchers" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Shelter" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/FoodDistribution" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/NonFoodItemDistribution" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Cash Programming" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Education" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/CommunityPeaceBuilding" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/FoodSecurity&amp;Livelihoods" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Protection&amp;Inclusion(Gender/Age/Disability)" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/ClimateChangeAdaptation" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Health" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/WASH" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/DisasterRiskReduction(DRR)" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Microfinance" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Qurbani" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Ramadan" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Winterisation" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/OrphanSponsorship" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Advocacy" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Other" Type="int" Nullable="false" />
+          <Property Name="AdditionalSector(s)/Safeguarding" Type="int" Nullable="false" />
+          <Property Name="AdditionalSectorTypeofCashProgrammingUnconditionalCash" Type="int" Nullable="false" />
+          <Property Name="AdditionalSectorTypeofCashProgrammingConditionalCash" Type="int" Nullable="false" />
+          <Property Name="AdditionalSectorTypeofCashProgrammingUnconditionalVouchers" Type="int" Nullable="false" />
+          <Property Name="AdditionalSectorTypeofCashProgrammingConditionalVouchers" Type="int" Nullable="false" />
+          <Property Name="Would you classify your project as a Graduation Model Project?" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CrosscuttingThemeClimateChange" Type="int" Nullable="false" />
+          <Property Name="CrosscuttingThemeWomen'sEmpowerment" Type="int" Nullable="false" />
+          <Property Name="CrosscuttingThemeProtectionMainstreaming" Type="int" Nullable="false" />
+          <Property Name="Cross-cuttingThemeInclusionofPersonsWithDisabilities" Type="int" Nullable="false" />
+          <Property Name="CrosscuttingThemeInclusionofOlderPersons" Type="int" Nullable="false" />
+          <Property Name="CrosscuttingThemeNone" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CountrySustainableDevelopmentGoalInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SustainableDevelopmentGoal(s)Alignment" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="SDGGoal1Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal2Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal3Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal4Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal5Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal6Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal7Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal8Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal9Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal10Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal11Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal12Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal13Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal14Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal15Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal16Indicator" Type="int" Nullable="false" />
+          <Property Name="SDGGoal17Indicator" Type="int" Nullable="false" />
+          <Property Name="CommunityType(HostCommunity/Local Community;InternallyDisplacedPersons(IDPs);Refugees)" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FlexibleInterventions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Fields" Type="ntext" />
+          <Property Name="Values" Type="ntext" />
+          <Property Name="ParentId" Type="uniqueidentifier" />
+          <Property Name="ProjectId" Type="uniqueidentifier" />
+          <Property Name="FilePath" Type="ntext" />
+        </EntityType>
+        <EntityType Name="PredictedFlexibleInterventionsData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Fields" Type="ntext" />
+          <Property Name="Values" Type="ntext" />
+          <Property Name="ProjectId" Type="uniqueidentifier" />
+          <Property Name="CreatedTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProjectRelatedCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BeneficiaryId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProjectId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provinces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IR_DBModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AssignUser" EntityType="Self.AssignUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BeneficiariesRecords" EntityType="Self.BeneficiariesRecords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BeneficiaryRecords" EntityType="Self.BeneficiaryRecords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryBasicProjectData" EntityType="Self.CountryBasicProjectData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryProjectSectorInformation" EntityType="Self.CountryProjectSectorInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountrySustainableDevelopmentGoalInformation" EntityType="Self.CountrySustainableDevelopmentGoalInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FlexibleInterventions" EntityType="Self.FlexibleInterventions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PredictedFlexibleInterventionsData" EntityType="Self.PredictedFlexibleInterventionsData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectRelatedCategory" EntityType="Self.ProjectRelatedCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IR_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="ProvinceId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BeneficiariesRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CategoryId" Type="Guid" Nullable="false" />
+          <Property Name="Disability" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+          <Property Name="FlexibleInterventionsId" Type="Guid" Nullable="false" />
+          <Property Name="ProjectId" Type="Guid" />
+          <Property Name="AgeGroup" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectId" Type="Guid" />
+        </EntityType>
+        <EntityType Name="CountryBasicProjectData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Roll" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TypeOfProject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SeasonalProjectType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsOneDonar" Type="Int32" />
+          <Property Name="IRWProjectPinCode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Donar_Partner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImplementationPeriodFrom" Type="DateTime" Precision="3" />
+          <Property Name="ImplementationPeriodTo" Type="DateTime" Precision="3" />
+          <Property Name="Region" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="PrimarySector" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ScopeOfProject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SDGGoalIndicator" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DirectRightHolders" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CountryProjectSectorInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PrimarySector" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrimarySectorTypeofCashProgrammingUnconditionalCash" Type="Int32" Nullable="false" />
+          <Property Name="PrimarySectorTypeofCashProgrammingConditionalCash" Type="Int32" Nullable="false" />
+          <Property Name="PrimarySectorTypeofCashProgrammingUnconditionalVouchers" Type="Int32" Nullable="false" />
+          <Property Name="PrimarySectorTypeofCashProgrammingConditionalVouchers" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Shelter" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__FoodDistribution" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__NonFoodItemDistribution" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Cash_Programming" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Education" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__CommunityPeaceBuilding" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__FoodSecurity_Livelihoods" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Protection_Inclusion_Gender_Age_Disability_" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__ClimateChangeAdaptation" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Health" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__WASH" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__DisasterRiskReduction_DRR_" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Microfinance" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Qurbani" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Ramadan" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Winterisation" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__OrphanSponsorship" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Advocacy" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Other" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSector_s__Safeguarding" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSectorTypeofCashProgrammingUnconditionalCash" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSectorTypeofCashProgrammingConditionalCash" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSectorTypeofCashProgrammingUnconditionalVouchers" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalSectorTypeofCashProgrammingConditionalVouchers" Type="Int32" Nullable="false" />
+          <Property Name="Would_you_classify_your_project_as_a_Graduation_Model_Project_" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CrosscuttingThemeClimateChange" Type="Int32" Nullable="false" />
+          <Property Name="CrosscuttingThemeWomen_sEmpowerment" Type="Int32" Nullable="false" />
+          <Property Name="CrosscuttingThemeProtectionMainstreaming" Type="Int32" Nullable="false" />
+          <Property Name="Cross_cuttingThemeInclusionofPersonsWithDisabilities" Type="Int32" Nullable="false" />
+          <Property Name="CrosscuttingThemeInclusionofOlderPersons" Type="Int32" Nullable="false" />
+          <Property Name="CrosscuttingThemeNone" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CountrySustainableDevelopmentGoalInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SustainableDevelopmentGoal_s_Alignment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SDGGoal1Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal2Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal3Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal4Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal5Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal6Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal7Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal8Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal9Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal10Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal11Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal12Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal13Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal14Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal15Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal16Indicator" Type="Int32" Nullable="false" />
+          <Property Name="SDGGoal17Indicator" Type="Int32" Nullable="false" />
+          <Property Name="CommunityType_HostCommunity_Local_Community_InternallyDisplacedPersons_IDPs__Refugees_" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="IR_DBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="BeneficiariesRecords" EntityType="Self.BeneficiariesRecord" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="CountryBasicProjectDatas" EntityType="Self.CountryBasicProjectData" />
+          <EntitySet Name="CountryProjectSectorInformations" EntityType="Self.CountryProjectSectorInformation" />
+          <EntitySet Name="CountrySustainableDevelopmentGoalInformations" EntityType="Self.CountrySustainableDevelopmentGoalInformation" />
+          <EntitySet Name="Provinces" EntityType="Self.Province" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="AssignUsers" EntityType="IR_DBModel.AssignUser" />
+          <EntitySet Name="ProjectRelatedCategories" EntityType="IR_DBModel.ProjectRelatedCategory" />
+          <EntitySet Name="PredictedFlexibleInterventionsDatas" EntityType="IR_DBModel.PredictedFlexibleInterventionsData" />
+          <EntitySet Name="FlexibleInterventions" EntityType="IR_DBModel.FlexibleIntervention" />
+          <EntitySet Name="BeneficiaryRecords" EntityType="IR_DBModel.BeneficiaryRecord" />
+        </EntityContainer>
+        <EntityType Name="AssignUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ProjectId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectRelatedCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ProjectId" Type="Guid" Nullable="false" />
+          <Property Name="BeneficiaryId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PredictedFlexibleInterventionsData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Fields" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Values" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectId" Type="Guid" />
+          <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="FlexibleIntervention">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Fields" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Values" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Guid" />
+          <Property Name="ProjectId" Type="Guid" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BeneficiaryRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ProjectId" Type="Guid" />
+          <Property Name="Sector" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Component" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="Guid" />
+          <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Village" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BeneficiaryName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TazkiraOrPassportNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Education" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HouseHoldStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DisabilityStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EconomicStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IR_DBModelStoreContainer" CdmEntityContainer="IR_DBEntities1">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="IR_DBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="IR_DBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="IR_DBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="IR_DBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="IR_DBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BeneficiariesRecords">
+            <EntityTypeMapping TypeName="IR_DBModel.BeneficiariesRecord">
+              <MappingFragment StoreEntitySet="BeneficiariesRecords">
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="AgeGroup" ColumnName="AgeGroup" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Disability" ColumnName="Disability" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="FlexibleInterventionsId" ColumnName="FlexibleInterventionsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="IR_DBModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryBasicProjectDatas">
+            <EntityTypeMapping TypeName="IR_DBModel.CountryBasicProjectData">
+              <MappingFragment StoreEntitySet="CountryBasicProjectData">
+                <ScalarProperty Name="DirectRightHolders" ColumnName="DirectRightHolders" />
+                <ScalarProperty Name="SDGGoalIndicator" ColumnName="SDGGoalIndicator" />
+                <ScalarProperty Name="ScopeOfProject" ColumnName="ScopeOfProject" />
+                <ScalarProperty Name="PrimarySector" ColumnName="PrimarySector" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Roll" ColumnName="Roll" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ProjectLocation" ColumnName="ProjectLocation" />
+                <ScalarProperty Name="TypeOfProject" ColumnName="TypeOfProject" />
+                <ScalarProperty Name="SeasonalProjectType" ColumnName="SeasonalProjectType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsOneDonar" ColumnName="IsOneDonar" />
+                <ScalarProperty Name="IRWProjectPinCode" ColumnName="IRWProjectPinCode" />
+                <ScalarProperty Name="Donar_Partner" ColumnName="Donar/Partner" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="ImplementationPeriodFrom" ColumnName="ImplementationPeriodFrom" />
+                <ScalarProperty Name="ImplementationPeriodTo" ColumnName="ImplementationPeriodTo" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryProjectSectorInformations">
+            <EntityTypeMapping TypeName="IR_DBModel.CountryProjectSectorInformation">
+              <MappingFragment StoreEntitySet="CountryProjectSectorInformation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PrimarySector" ColumnName="PrimarySector" />
+                <ScalarProperty Name="PrimarySectorTypeofCashProgrammingUnconditionalCash" ColumnName="PrimarySectorTypeofCashProgrammingUnconditionalCash" />
+                <ScalarProperty Name="PrimarySectorTypeofCashProgrammingConditionalCash" ColumnName="PrimarySectorTypeofCashProgrammingConditionalCash" />
+                <ScalarProperty Name="PrimarySectorTypeofCashProgrammingUnconditionalVouchers" ColumnName="PrimarySectorTypeofCashProgrammingUnconditionalVouchers" />
+                <ScalarProperty Name="PrimarySectorTypeofCashProgrammingConditionalVouchers" ColumnName="PrimarySectorTypeofCashProgrammingConditionalVouchers" />
+                <ScalarProperty Name="AdditionalSector_s__Shelter" ColumnName="AdditionalSector(s)/Shelter" />
+                <ScalarProperty Name="AdditionalSector_s__FoodDistribution" ColumnName="AdditionalSector(s)/FoodDistribution" />
+                <ScalarProperty Name="AdditionalSector_s__NonFoodItemDistribution" ColumnName="AdditionalSector(s)/NonFoodItemDistribution" />
+                <ScalarProperty Name="AdditionalSector_s__Cash_Programming" ColumnName="AdditionalSector(s)/Cash Programming" />
+                <ScalarProperty Name="AdditionalSector_s__Education" ColumnName="AdditionalSector(s)/Education" />
+                <ScalarProperty Name="AdditionalSector_s__CommunityPeaceBuilding" ColumnName="AdditionalSector(s)/CommunityPeaceBuilding" />
+                <ScalarProperty Name="AdditionalSector_s__FoodSecurity_Livelihoods" ColumnName="AdditionalSector(s)/FoodSecurity&amp;Livelihoods" />
+                <ScalarProperty Name="AdditionalSector_s__Protection_Inclusion_Gender_Age_Disability_" ColumnName="AdditionalSector(s)/Protection&amp;Inclusion(Gender/Age/Disability)" />
+                <ScalarProperty Name="AdditionalSector_s__ClimateChangeAdaptation" ColumnName="AdditionalSector(s)/ClimateChangeAdaptation" />
+                <ScalarProperty Name="AdditionalSector_s__Health" ColumnName="AdditionalSector(s)/Health" />
+                <ScalarProperty Name="AdditionalSector_s__WASH" ColumnName="AdditionalSector(s)/WASH" />
+                <ScalarProperty Name="AdditionalSector_s__DisasterRiskReduction_DRR_" ColumnName="AdditionalSector(s)/DisasterRiskReduction(DRR)" />
+                <ScalarProperty Name="AdditionalSector_s__Microfinance" ColumnName="AdditionalSector(s)/Microfinance" />
+                <ScalarProperty Name="AdditionalSector_s__Qurbani" ColumnName="AdditionalSector(s)/Qurbani" />
+                <ScalarProperty Name="AdditionalSector_s__Ramadan" ColumnName="AdditionalSector(s)/Ramadan" />
+                <ScalarProperty Name="AdditionalSector_s__Winterisation" ColumnName="AdditionalSector(s)/Winterisation" />
+                <ScalarProperty Name="AdditionalSector_s__OrphanSponsorship" ColumnName="AdditionalSector(s)/OrphanSponsorship" />
+                <ScalarProperty Name="AdditionalSector_s__Advocacy" ColumnName="AdditionalSector(s)/Advocacy" />
+                <ScalarProperty Name="AdditionalSector_s__Other" ColumnName="AdditionalSector(s)/Other" />
+                <ScalarProperty Name="AdditionalSector_s__Safeguarding" ColumnName="AdditionalSector(s)/Safeguarding" />
+                <ScalarProperty Name="AdditionalSectorTypeofCashProgrammingUnconditionalCash" ColumnName="AdditionalSectorTypeofCashProgrammingUnconditionalCash" />
+                <ScalarProperty Name="AdditionalSectorTypeofCashProgrammingConditionalCash" ColumnName="AdditionalSectorTypeofCashProgrammingConditionalCash" />
+                <ScalarProperty Name="AdditionalSectorTypeofCashProgrammingUnconditionalVouchers" ColumnName="AdditionalSectorTypeofCashProgrammingUnconditionalVouchers" />
+                <ScalarProperty Name="AdditionalSectorTypeofCashProgrammingConditionalVouchers" ColumnName="AdditionalSectorTypeofCashProgrammingConditionalVouchers" />
+                <ScalarProperty Name="Would_you_classify_your_project_as_a_Graduation_Model_Project_" ColumnName="Would you classify your project as a Graduation Model Project?" />
+                <ScalarProperty Name="CrosscuttingThemeClimateChange" ColumnName="CrosscuttingThemeClimateChange" />
+                <ScalarProperty Name="CrosscuttingThemeWomen_sEmpowerment" ColumnName="CrosscuttingThemeWomen'sEmpowerment" />
+                <ScalarProperty Name="CrosscuttingThemeProtectionMainstreaming" ColumnName="CrosscuttingThemeProtectionMainstreaming" />
+                <ScalarProperty Name="Cross_cuttingThemeInclusionofPersonsWithDisabilities" ColumnName="Cross-cuttingThemeInclusionofPersonsWithDisabilities" />
+                <ScalarProperty Name="CrosscuttingThemeInclusionofOlderPersons" ColumnName="CrosscuttingThemeInclusionofOlderPersons" />
+                <ScalarProperty Name="CrosscuttingThemeNone" ColumnName="CrosscuttingThemeNone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountrySustainableDevelopmentGoalInformations">
+            <EntityTypeMapping TypeName="IR_DBModel.CountrySustainableDevelopmentGoalInformation">
+              <MappingFragment StoreEntitySet="CountrySustainableDevelopmentGoalInformation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SustainableDevelopmentGoal_s_Alignment" ColumnName="SustainableDevelopmentGoal(s)Alignment" />
+                <ScalarProperty Name="SDGGoal1Indicator" ColumnName="SDGGoal1Indicator" />
+                <ScalarProperty Name="SDGGoal2Indicator" ColumnName="SDGGoal2Indicator" />
+                <ScalarProperty Name="SDGGoal3Indicator" ColumnName="SDGGoal3Indicator" />
+                <ScalarProperty Name="SDGGoal4Indicator" ColumnName="SDGGoal4Indicator" />
+                <ScalarProperty Name="SDGGoal5Indicator" ColumnName="SDGGoal5Indicator" />
+                <ScalarProperty Name="SDGGoal6Indicator" ColumnName="SDGGoal6Indicator" />
+                <ScalarProperty Name="SDGGoal7Indicator" ColumnName="SDGGoal7Indicator" />
+                <ScalarProperty Name="SDGGoal8Indicator" ColumnName="SDGGoal8Indicator" />
+                <ScalarProperty Name="SDGGoal9Indicator" ColumnName="SDGGoal9Indicator" />
+                <ScalarProperty Name="SDGGoal10Indicator" ColumnName="SDGGoal10Indicator" />
+                <ScalarProperty Name="SDGGoal11Indicator" ColumnName="SDGGoal11Indicator" />
+                <ScalarProperty Name="SDGGoal12Indicator" ColumnName="SDGGoal12Indicator" />
+                <ScalarProperty Name="SDGGoal13Indicator" ColumnName="SDGGoal13Indicator" />
+                <ScalarProperty Name="SDGGoal14Indicator" ColumnName="SDGGoal14Indicator" />
+                <ScalarProperty Name="SDGGoal15Indicator" ColumnName="SDGGoal15Indicator" />
+                <ScalarProperty Name="SDGGoal16Indicator" ColumnName="SDGGoal16Indicator" />
+                <ScalarProperty Name="SDGGoal17Indicator" ColumnName="SDGGoal17Indicator" />
+                <ScalarProperty Name="CommunityType_HostCommunity_Local_Community_InternallyDisplacedPersons_IDPs__Refugees_" ColumnName="CommunityType(HostCommunity/Local Community;InternallyDisplacedPersons(IDPs);Refugees)" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="IR_DBModel.Province">
+              <MappingFragment StoreEntitySet="Provinces">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="IR_DBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="AssignUsers">
+            <EntityTypeMapping TypeName="IR_DBModel.AssignUser">
+              <MappingFragment StoreEntitySet="AssignUser">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectRelatedCategories">
+            <EntityTypeMapping TypeName="IR_DBModel.ProjectRelatedCategory">
+              <MappingFragment StoreEntitySet="ProjectRelatedCategory">
+                <ScalarProperty Name="BeneficiaryId" ColumnName="BeneficiaryId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PredictedFlexibleInterventionsDatas">
+            <EntityTypeMapping TypeName="IR_DBModel.PredictedFlexibleInterventionsData">
+              <MappingFragment StoreEntitySet="PredictedFlexibleInterventionsData">
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Values" ColumnName="Values" />
+                <ScalarProperty Name="Fields" ColumnName="Fields" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlexibleInterventions">
+            <EntityTypeMapping TypeName="IR_DBModel.FlexibleIntervention">
+              <MappingFragment StoreEntitySet="FlexibleInterventions">
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Values" ColumnName="Values" />
+                <ScalarProperty Name="Fields" ColumnName="Fields" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BeneficiaryRecords">
+            <EntityTypeMapping TypeName="IR_DBModel.BeneficiaryRecord">
+              <MappingFragment StoreEntitySet="BeneficiaryRecords">
+                <ScalarProperty Name="EconomicStatus" ColumnName="EconomicStatus" />
+                <ScalarProperty Name="DisabilityStatus" ColumnName="DisabilityStatus" />
+                <ScalarProperty Name="HouseHoldStatus" ColumnName="HouseHoldStatus" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="TazkiraOrPassportNumber" ColumnName="TazkiraOrPassportNumber" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="BeneficiaryName" ColumnName="BeneficiaryName" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Component" ColumnName="Component" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

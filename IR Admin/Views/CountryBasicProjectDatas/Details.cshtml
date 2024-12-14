@@ -1,0 +1,147 @@
+﻿@model IR_Admin.Db.CountryBasicProjectData
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CountryBasicProjectData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Roll)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Roll)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfProject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfProject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeasonalProjectType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeasonalProjectType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsOneDonar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsOneDonar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IRWProjectPinCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IRWProjectPinCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donar_Partner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donar_Partner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImplementationPeriodFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImplementationPeriodFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImplementationPeriodTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImplementationPeriodTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

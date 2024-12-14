@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="edbf65f061334d63b3b4c2ca42b0e44e" Name="Diagram1">
+        <EntityTypeShape EntityType="IR_DBModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.AspNetUser" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.BeneficiariesRecord" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.Category" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.CountryBasicProjectData" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.CountryProjectSectorInformation" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.CountrySustainableDevelopmentGoalInformation" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.Province" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="IR_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="IR_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="IR_DBModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IR_DBModel.AssignUser" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="IR_DBModel.ProjectRelatedCategory" Width="1.5" PointX="3.375" PointY="11.75" />
+        <EntityTypeShape EntityType="IR_DBModel.PredictedFlexibleInterventionsData" Width="1.5" PointX="4.75" PointY="9.25" />
+        <EntityTypeShape EntityType="IR_DBModel.FlexibleIntervention" Width="1.625" PointX="11.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IR_DBModel.BeneficiaryRecord" Width="1.5" PointX="11.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
